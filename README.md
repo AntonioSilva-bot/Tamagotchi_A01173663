@@ -20,7 +20,7 @@ cd Adafruit_Python_SSD1306
 sudo python setup.py install
 ```
 ## Construcción del código
-
+### Codigo principal
 Importamos las siguientes librerías:
 ```python
 import os
@@ -114,6 +114,10 @@ Se enciende el primer led de la protoboard y se suma uno en el contador del alim
             # Sobrealimentado
             self.salud += 2
         pass
+        
+```
+
+```python
 
     def jugar(self):
         GPIO.setup(LED1, GPIO.OUT)
