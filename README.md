@@ -34,7 +34,7 @@ import Adafruit_GPIO.SPI as SPI
 import Adafruit_SSD1306
 ```
 Se inicializa la ejecución de la Oled para la transmisión de datos
-```sh
+```python
 RST = 24
 DC = 23
 SPI_PORT = 0
@@ -47,7 +47,7 @@ disp.clear()
 disp.display()
 ```
 Se controla la comunicación por medio del UART
-```sh
+```python
 ser = serial.Serial(
 port='/dev/ttyACM0',
 baudrate = 115200,
@@ -57,7 +57,7 @@ bytesize=serial.EIGHTBITS,timeout=1)
 counter=0
 ```
 Se indica la presencia de leds declarando los pines de la Raspberry
-```sh
+```python
 LED1 = 17
 LED2 = 27
 LED3 = 22
