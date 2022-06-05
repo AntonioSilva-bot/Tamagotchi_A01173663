@@ -95,7 +95,7 @@ Además se enciende el tercer led de nuestra protoboard por medio del GPIO ya qu
         elif accion == "jugar":
             self.jugar()
 ```
-Se enciende el primer led de la protoboard, se manda el mensaje "Has alimentado a x" por la terminal, se imprime una imagen en el display Oled y se suma uno en el contador del alimento
+Se enciende el primer led de la protoboard, se manda el mensaje "Has alimentado a x" por la terminal, se imprime una imagen en el display Oled y se suma uno en el contador del alimento.
 ```python
     def alimentar(self):
         GPIO.setup(LED1, GPIO.OUT)
@@ -116,7 +116,7 @@ Se enciende el primer led de la protoboard, se manda el mensaje "Has alimentado 
         pass
         
 ```
-La funcion jugar se encarga de enciende el segundo led de la protoboard, manda el mensaje "Juegas con x " a la terminal, suma uno al contador de juego y eejecuta el codigo "1.py" llevandonos al juego que se ha diseñado. Posteriormente cambia la imagen del diplay para esperar a la siguiente instrucción que se ejecute
+La funcion jugar se encarga de enciende el segundo led de la protoboard, manda el mensaje "Juegas con x " a la terminal, suma uno al contador de juego y eejecuta el codigo "1.py" llevandonos al juego que se ha diseñado. Posteriormente cambia la imagen del diplay para esperar a la siguiente instrucción que se ejecute.
 ```python
     def jugar(self):
         GPIO.setup(LED1, GPIO.OUT)
@@ -139,7 +139,7 @@ La funcion jugar se encarga de enciende el segundo led de la protoboard, manda e
         if self.felicidad > 10:
             self.felicidad = 10
 ```
-Esta función se ejecuta una vez que los puntos de alguno de los dos contadores llegue a cero y se encarga de finalizar el programa
+Esta función se ejecuta una vez que los puntos de alguno de los dos contadores llegue a cero y se encarga de finalizar el programa.
 ```python
     def muere(self):
         if self.salud >= 10 or self.felicidad <= 0 or self.hambre <= 0:
@@ -163,7 +163,7 @@ Imprime el valor de los contadores
         print("Felicidad: " + str(self.felicidad))
         print("Salud: " + str(self.salud))
 ```
-Dentro del main se encuentra el menu en donde se escogerá la acción del usuario así como se encuentra la función de nombrar a nuestro tamagotchi y habilitarnos el envio de imagenes a la oled
+Dentro del main se encuentra el menu en donde se escogerá la acción del usuario así como se encuentra la función de nombrar a nuestro tamagotchi y habilitarnos el envio de imagenes a la oled.
 ```python
 def main():
      image = Image.open('huevo.bmp').resize((disp.width, disp.height), Image.ANTIALIAS).convert('1')
@@ -202,19 +202,19 @@ main()
 ```
 ### 1.py (Juego)
 
-SSe importa la librería pygames y se inicializa
+Se importa la librería pygames y se inicializa.
 ```python
 import pygame
 pygame.init()
 ```
-Se crea el display en donde se ejecutará el juego y se importan los elementos de sonido para el juego
+Se crea el display en donde se ejecutará el juego y se importan los elementos de sonido para el juego.
 ```python
 ventana = pygame.display.set_mode((640,480))
 pygame.display.set_caption("Juego 1")
 PEW_sound = pygame.mixer.Sound('PEW.wav')
 loose_sound = pygame.mixer.Sound('loose.wav')
 ```
-Se realiza la creación de los elementos que se utilizarán para la ejecución del juego  
+Se realiza la creación de los elementos que se utilizarán para la ejecución del juego.
 ```python
 # Crea el objeto pelota
 ball = pygame.image.load("ball.png")
@@ -230,7 +230,7 @@ baserect.move_ip(240,450)
 # Esta es la fuente que usaremos para el texto que aparecerá en pantalla (tamaño 36)
 fuente = pygame.font.Font(None, 36)
 ```
-Se inicializa el juego realizando un chequeo de la pulsación ed teclas y detecta si exite alguna colición entere los elementos
+Se inicializa el juego realizando un chequeo de la pulsación ed teclas y detecta si exite alguna colición entere los elementos.
 ```python
 # Bucle principal del juego
 jugando = True
@@ -251,7 +251,7 @@ while jugando:
         PEW_sound.play() #connect
         speed[1] = -speed[1]
 ```
-Se realizan las acciones de los elementos que se imprimen en pantalla, siendo que si en algun momento la pelota llega a tocar el borde el juego se toma por terminado y nos retorna al programa principal
+Se realizan las acciones de los elementos que se imprimen en pantalla, siendo que si en algun momento la pelota llega a tocar el borde el juego se toma por terminado y nos retorna al programa principal.
 ```python
 # Muevo la pelota
     ballrect = ballrect.move(speed)
@@ -283,7 +283,7 @@ Se realizan las acciones de los elementos que se imprimen en pantalla, siendo qu
 pygame.quit()
 ```
 ### Codigo de arduino
-
+Este código tiene que ser ejecutado en la placa arduino para posteriormente conectarse a alguno de los puertos usb de la raspberry. Este código tiene la funcionalidad de enviar un dato en concreto al pulsar un boton de nuestra protoboard para posteriormente ser leido por un elemento en el código de python.
 ```arduino
 #define PIN_BOT1 3
 #define PIN_BOT2 4
@@ -323,4 +323,4 @@ Python Tamagotchi.py
 ```
 
 ## Conclusiones
-
+La elaboración de este código fu algo complicada debido a que tuvimos que investigar muchas cosas sobre python, sin embargo fue muy interesante el proceso de realización ya que tuvimos que resolver esta actividad con conocimientos prievios y algunos que teníamos que aprender sobre la marcha, por otra parte interactuar con la librería de la pantalla oled y con los perifericos fue algo desafiante ya que tuvimos que pasar por diferentes procesos paraa poder hacer que esta funcionara correctamente y que tuvieramos valores precisos.
