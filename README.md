@@ -282,7 +282,8 @@ Se realizan las acciones de los elementos que se imprimen en pantalla, siendo qu
     pygame.time.Clock().tick(60)
 pygame.quit()
 ```
-###Codigo de arduino
+### Codigo de arduino
+
 ```arduino
 #define PIN_BOT1 3
 #define PIN_BOT2 4
